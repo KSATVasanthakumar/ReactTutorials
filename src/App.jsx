@@ -1,16 +1,33 @@
-import { useState } from "react";
-import "./App.css";
-// import UseEffectTut1 from "./Tut1/useEffectTut1";
-// import Reducervsstate from "./Tut2/reducervsstate";
-import ToolText from "./Tut3/ToolText";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+import ProductsPage from "./Tut5/Pages/ProductsPage";
+
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import Layout from "./Tut5/Components/Layout";
+import CartPage from "./Tut5/Pages/CartPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <ProductsPage /> },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+    ],
+  },
+]);
+
+const App = () => {
   return (
     <>
-      {/* <UseEffectTut1 /> */}
-      <ToolText />
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
-}
+};
 
 export default App;
