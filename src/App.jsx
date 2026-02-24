@@ -1,33 +1,8 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import ProductsPage from "./Tut5/Pages/ProductsPage";
-
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
-import Layout from "./Tut5/Components/Layout";
-import CartPage from "./Tut5/Pages/CartPage";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { index: true, element: <ProductsPage /> },
-      {
-        path: "/cart",
-        element: <CartPage />,
-      },
-    ],
-  },
-]);
+import HomePages from "./Tut6/Pages/HomePages";
 
 const App = () => {
-  return (
-    <>
-      <RouterProvider router={router}></RouterProvider>
-    </>
-  );
+  return <HomePages />;
 };
 
 export default App;
